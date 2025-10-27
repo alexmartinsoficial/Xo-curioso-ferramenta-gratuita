@@ -145,7 +145,7 @@ st.markdown("""
         color: #2c3e50;
     }
     
-    /* Botões de opção com fundo claro e legível */
+/* Botões de opção com fundo claro e legível */
     .stButton > button {
         background-color: white !important;
         color: #2c3e50 !important;
