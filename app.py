@@ -137,14 +137,48 @@ st.markdown("""
         border: 2px solid #ddd;
     }
     
-    /* Forçar TUDO escuro por padrão */
-    .stMarkdown, .stMarkdown *, p, span, div:not([style*="gradient"]), li, strong, em {
+    /* FORÇAR texto escuro em TUDO */
+    * {
         color: #2c3e50 !important;
     }
     
-    /* Exceção: manter branco em gradientes */
-    [style*="linear-gradient"] *, [style*="linear-gradient"] h3 {
+    /* Exceções específicas que PRECISAM ser brancas */
+    .big-title {
+        color: #e74c3c !important;
+    }
+    
+    [style*="background: linear-gradient"] h3,
+    [style*="background: linear-gradient"] p,
+    [style*="background: linear-gradient"] * {
         color: white !important;
+    }
+    
+    .score-display {
+        color: #667eea !important;
+    }
+    
+    .footer-info {
+        color: #7f8c8d !important;
+    }
+    
+    .disclaimer {
+        color: #7f8c8d !important;
+    }
+    
+    .feedback-success, .feedback-success * {
+        color: #155724 !important;
+    }
+    
+    .feedback-warning, .feedback-warning * {
+        color: #856404 !important;
+    }
+    
+    .feedback-danger, .feedback-danger * {
+        color: #721c24 !important;
+    }
+    
+    .cliente-bubble, .cliente-bubble * {
+        color: #2c3e50 !important;
     }
 </style>
 """, unsafe_allow_html=True)
