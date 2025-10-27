@@ -524,7 +524,7 @@ def show_capa():
 def show_scenarios():
     st.markdown('<div class="big-title">Escolha um Cenário</div>', unsafe_allow_html=True)
     
-    st.markdown("### 3 Situações Reais do Dia a Dia")
+    st.markdown('<h3 style="color: #2c3e50;">3 Situações Reais do Dia a Dia</h3>', unsafe_allow_html=True)
     
     col1, col2, col3 = st.columns(3)
     
