@@ -531,31 +531,25 @@ def show_scenarios():
     col1, col2, col3 = st.columns(3)
     
     with col1:
-        st.markdown("""**🟢 CENÁRIO 1: MÁRCIA**
-Cliente com orçamento definido.
-Já pesquisou e quer começar.
-
-*Dificuldade: Fácil*""")
+        st.markdown("**🟢 CENÁRIO 1: MÁRCIA**")
+        st.markdown("Cliente com orçamento definido. Já pesquisou e quer começar.")
+        st.markdown("*Dificuldade: Fácil*")
         if st.button("Começar", key="start_marcia", type="primary", use_container_width=True):
             reset_marcia()
             go_to_page('marcia')
     
     with col2:
-        st.markdown("""**🟡 CENÁRIO 2: PAULA**
-Interessada mas sem verba.
-"Vou ver se consigo juntar..."
-
-*Dificuldade: Média*""")
+        st.markdown("**🟡 CENÁRIO 2: PAULA**")
+        st.markdown("Interessada mas sem verba. 'Vou ver se consigo juntar...'")
+        st.markdown("*Dificuldade: Média*")
         if st.button("Começar", key="start_paula", type="primary", use_container_width=True):
             reset_paula()
             go_to_page('paula')
     
     with col3:
-        st.markdown("""**🔴 CENÁRIO 3: CARLA**
-Só pesquisando preços.
-"Talvez ano que vem..."
-
-*Dificuldade: Difícil*""")
+        st.markdown("**🔴 CENÁRIO 3: CARLA**")
+        st.markdown("Só pesquisando preços. 'Talvez ano que vem...'")
+        st.markdown("*Dificuldade: Difícil*")
         if st.button("Começar", key="start_carla", type="primary", use_container_width=True):
             reset_carla()
             go_to_page('carla')
