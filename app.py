@@ -144,6 +144,19 @@ st.markdown("""
     p, span, div, li {
         color: #2c3e50;
     }
+    
+    /* Botões de opção com fundo claro e legível */
+    .stButton > button {
+        background-color: white !important;
+        color: #2c3e50 !important;
+        border: 2px solid #ddd !important;
+        font-weight: 500 !important;
+    }
+    
+    .stButton > button:hover {
+        background-color: #f0f0f0 !important;
+        border-color: #667eea !important;
+    }
 </style>
 """, unsafe_allow_html=True)
 
