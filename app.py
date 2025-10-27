@@ -461,6 +461,7 @@ Só pesquisando preços.
     
     if st.button("⬅️ Voltar para o Início"):
         go_to_page('capa')
+        
 # ==========================================
 # TELA 3: SIMULADOR MÁRCIA
 # ==========================================
