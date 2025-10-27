@@ -11,26 +11,6 @@ st.set_page_config(
 # CSS customizado
 st.markdown("""
 <style>
-    /* Forçar tema claro */
-    [data-testid="stAppViewContainer"] {
-        background-color: white !important;
-    }
-    
-    /* Garantir texto visível */
-    .stMarkdown, .stMarkdown p, .stMarkdown div {
-        color: #2c3e50 !important;
-    }
-    
-    /* Títulos visíveis */
-    h1, h2, h3, h4, h5, h6 {
-        color: #2c3e50 !important;
-    }
-    
-    /* Cards de cenário visíveis */
-    .element-container {
-        color: #2c3e50 !important;
-    }
-    
     #MainMenu {visibility: hidden;}
     footer {visibility: hidden;}
     
@@ -38,6 +18,114 @@ st.markdown("""
         background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         padding: 20px;
     }
+    
+    .stApp > div > div {
+        background: white;
+        border-radius: 20px;
+        padding: 40px;
+        box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    }
+    
+    .big-title {
+        font-size: 48px;
+        font-weight: bold;
+        color: #e74c3c;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    
+    .subtitle {
+        font-size: 24px;
+        color: #2c3e50;
+        text-align: center;
+        line-height: 1.4;
+        margin-bottom: 10px;
+    }
+    
+    .disclaimer {
+        font-size: 18px;
+        color: #7f8c8d;
+        text-align: center;
+        font-style: italic;
+        margin-bottom: 40px;
+    }
+    
+    .pain-list {
+        background: #fff3cd;
+        border-left: 5px solid #ffc107;
+        padding: 20px;
+        border-radius: 10px;
+        margin: 30px 0;
+    }
+    
+    .pain-item {
+        font-size: 18px;
+        color: #2c3e50;
+        margin: 10px 0;
+    }
+    
+    .benefits {
+        background: #e7f3ff;
+        border-left: 5px solid #2196F3;
+        padding: 20px;
+        border-radius: 10px;
+        margin: 30px 0;
+    }
+    
+    .benefit-item {
+        font-size: 16px;
+        color: #2c3e50;
+        margin: 8px 0;
+    }
+    
+    .footer-info {
+        text-align: center;
+        color: #7f8c8d;
+        font-size: 14px;
+        margin-top: 20px;
+    }
+    
+    .cliente-bubble {
+        background: #e8f5e9;
+        border-left: 4px solid #4caf50;
+        padding: 15px;
+        border-radius: 10px;
+        margin: 20px 0;
+    }
+    
+    .feedback-success {
+        background: #d4edda;
+        border-left: 4px solid #28a745;
+        padding: 15px;
+        border-radius: 8px;
+        margin: 15px 0;
+    }
+    
+    .feedback-warning {
+        background: #fff3cd;
+        border-left: 4px solid #ffc107;
+        padding: 15px;
+        border-radius: 8px;
+        margin: 15px 0;
+    }
+    
+    .feedback-danger {
+        background: #f8d7da;
+        border-left: 4px solid #dc3545;
+        padding: 15px;
+        border-radius: 8px;
+        margin: 15px 0;
+    }
+    
+    .score-display {
+        text-align: center;
+        font-size: 24px;
+        font-weight: bold;
+        color: #667eea;
+        margin: 20px 0;
+    }
+</style>
+""", unsafe_allow_html=True)
 
 # ==========================================
 # DADOS DO CENÁRIO: MÁRCIA (VERDE)
