@@ -124,6 +124,21 @@ st.markdown("""
         color: #667eea;
         margin: 20px 0;
     }
+    
+    /* Forçar texto escuro nos cards de cenário */
+    .stMarkdown p, .stMarkdown strong, .stMarkdown em {
+        color: #2c3e50 !important;
+    }
+    
+    /* Garantir que containers tenham fundo */
+    [data-testid="column"] {
+        background-color: #f8f9fa;
+        padding: 15px;
+        border-radius: 10px;
+        border: 2px solid #ddd;
+    }
+</style>
+""", unsafe_allow_html=True)
 </style>
 """, unsafe_allow_html=True)
 
