@@ -145,7 +145,7 @@ st.markdown("""
         color: #2c3e50;
     }
     
-/* Botões de opção com fundo claro e legível */
+/* Botões de opção padrão (A, B, C, D) - fundo branco */
     .stButton > button {
         background-color: white !important;
         color: #2c3e50 !important;
@@ -156,6 +156,18 @@ st.markdown("""
     .stButton > button:hover {
         background-color: #f0f0f0 !important;
         border-color: #667eea !important;
+    }
+    
+    /* Botões primários (Começar, Identificar Clientes) - verde */
+    button[kind="primary"] {
+        background-color: #28a745 !important;
+        color: white !important;
+        border: none !important;
+        font-weight: bold !important;
+    }
+    
+    button[kind="primary"]:hover {
+        background-color: #218838 !important;
     }
 </style>
 """, unsafe_allow_html=True)
