@@ -955,27 +955,21 @@ def show_cta_vendas():
             Você treinou apenas <strong>BUDGET</strong> (Quem tem dinheiro?)<br><br>
             Mas ainda faltam 3 etapas críticas:
         </p>
-        <ul style="font-size: 16px; line-height: 1.8;">
-            <li><strong>AUTHORITY:</strong> Quem decide realmente?</li>
-            <li><strong>NEED:</strong> Qual a necessidade real?</li>
-            <li><strong>TIMELINE:</strong> Qual a urgência?</li>
-        </ul>
     </div>
     ''', unsafe_allow_html=True)
     
     st.markdown("### 🎯 Ferramenta FAROL Completa:")
     
+    st.markdown("**✅ AUTHORITY:** Quem decide realmente?")
+    st.markdown("**✅ NEED:** Qual a necessidade real?")
+    st.markdown("**✅ TIMELINE:** Qual a urgência?")
+    st.markdown("**✅ Scripts prontos para cada objeção**")
+    st.markdown("**✅ Mapa mental de qualificação**")
+    
     col1, col2 = st.columns([2, 1])
     
     with col1:
-        st.markdown("""
-        ✅ 4 Simuladores Interativos (todas as etapas)  
-        ✅ Scripts prontos para cada objeção  
-        ✅ Mapa mental de qualificação  
-        ✅ Guia de respostas para cada sinal  
-        
-        *Menos que o tempo perdido com 1 cliente errado.*
-        """)
+        st.markdown("*Menos que o tempo perdido com 1 cliente errado.*")
     
     with col2:
         st.markdown('<div style="text-align: center; font-size: 32px; font-weight: bold; color: #27ae60; margin-top: 20px;">R$ 27,00</div>', unsafe_allow_html=True)
