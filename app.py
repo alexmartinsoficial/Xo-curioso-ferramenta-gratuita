@@ -91,6 +91,7 @@ st.markdown("""
         padding: 15px;
         border-radius: 10px;
         margin: 20px 0;
+        color: #2c3e50;
     }
     
     .feedback-success {
@@ -99,6 +100,7 @@ st.markdown("""
         padding: 15px;
         border-radius: 8px;
         margin: 15px 0;
+        color: #155724;
     }
     
     .feedback-warning {
@@ -107,6 +109,7 @@ st.markdown("""
         padding: 15px;
         border-radius: 8px;
         margin: 15px 0;
+        color: #856404;
     }
     
     .feedback-danger {
@@ -115,6 +118,7 @@ st.markdown("""
         padding: 15px;
         border-radius: 8px;
         margin: 15px 0;
+        color: #721c24;
     }
     
     .score-display {
@@ -125,17 +129,22 @@ st.markdown("""
         margin: 20px 0;
     }
     
-    /* Forçar texto escuro nos cards de cenário */
-    .stMarkdown p, .stMarkdown strong, .stMarkdown em {
-        color: #2c3e50 !important;
-    }
-    
     /* Garantir que containers tenham fundo */
     [data-testid="column"] {
         background-color: #f8f9fa;
         padding: 15px;
         border-radius: 10px;
         border: 2px solid #ddd;
+    }
+    
+    /* Forçar TUDO escuro por padrão */
+    .stMarkdown, .stMarkdown *, p, span, div:not([style*="gradient"]), li, strong, em {
+        color: #2c3e50 !important;
+    }
+    
+    /* Exceção: manter branco em gradientes */
+    [style*="linear-gradient"] *, [style*="linear-gradient"] h3 {
+        color: white !important;
     }
 </style>
 """, unsafe_allow_html=True)
