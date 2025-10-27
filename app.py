@@ -529,7 +529,7 @@ def show_scenarios():
     col1, col2, col3 = st.columns(3)
     
     with col1:
-        st.markdown("**🟢 CENÁRIO 1: MÁRCIA**")
+        st.markdown('<p style="font-size: 22px; font-weight: bold;">🟢 CENÁRIO 1: MÁRCIA</p>', unsafe_allow_html=True)
         st.markdown("Cliente com orçamento definido. Já pesquisou e quer começar.")
         st.markdown("*Dificuldade: Fácil*")
         if st.button("Começar", key="start_marcia", type="primary", use_container_width=True):
@@ -537,7 +537,7 @@ def show_scenarios():
             go_to_page('marcia')
     
     with col2:
-        st.markdown("**🟡 CENÁRIO 2: PAULA**")
+        st.markdown('<p style="font-size: 22px; font-weight: bold;">🟡 CENÁRIO 2: PAULA</p>', unsafe_allow_html=True)
         st.markdown("Interessada mas sem verba. 'Vou ver se consigo juntar...'")
         st.markdown("*Dificuldade: Média*")
         if st.button("Começar", key="start_paula", type="primary", use_container_width=True):
@@ -545,7 +545,7 @@ def show_scenarios():
             go_to_page('paula')
     
     with col3:
-        st.markdown("**🔴 CENÁRIO 3: CARLA**")
+        st.markdown('<p style="font-size: 22px; font-weight: bold;">🔴 CENÁRIO 3: CARLA</p>', unsafe_allow_html=True)
         st.markdown("Só pesquisando preços. 'Talvez ano que vem...'")
         st.markdown("*Dificuldade: Difícil*")
         if st.button("Começar", key="start_carla", type="primary", use_container_width=True):
