@@ -11,14 +11,17 @@ st.set_page_config(
 # CSS customizado
 st.markdown("""
 <style>
+    /* Esconder menu */
     #MainMenu {visibility: hidden;}
     footer {visibility: hidden;}
     
+    /* Background principal */
     .main {
         background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         padding: 20px;
     }
     
+    /* Container branco central */
     .stApp > div > div {
         background: white;
         border-radius: 20px;
@@ -26,6 +29,7 @@ st.markdown("""
         box-shadow: 0 20px 60px rgba(0,0,0,0.3);
     }
     
+    /* Títulos */
     .big-title {
         font-size: 48px;
         font-weight: bold;
@@ -50,18 +54,14 @@ st.markdown("""
         margin-bottom: 40px;
     }
     
+    /* Boxes de conteúdo */
     .pain-list {
         background: #fff3cd;
         border-left: 5px solid #ffc107;
         padding: 20px;
         border-radius: 10px;
         margin: 30px 0;
-    }
-    
-    .pain-item {
-        font-size: 18px;
         color: #2c3e50;
-        margin: 10px 0;
     }
     
     .benefits {
@@ -70,12 +70,7 @@ st.markdown("""
         padding: 20px;
         border-radius: 10px;
         margin: 30px 0;
-    }
-    
-    .benefit-item {
-        font-size: 16px;
         color: #2c3e50;
-        margin: 8px 0;
     }
     
     .footer-info {
@@ -85,6 +80,16 @@ st.markdown("""
         margin-top: 20px;
     }
     
+    /* Cards de cenários */
+    [data-testid="column"] {
+        background-color: #f8f9fa;
+        padding: 15px;
+        border-radius: 10px;
+        border: 2px solid #ddd;
+        color: #2c3e50;
+    }
+    
+    /* Bubbles de cliente */
     .cliente-bubble {
         background: #e8f5e9;
         border-left: 4px solid #4caf50;
@@ -94,6 +99,7 @@ st.markdown("""
         color: #2c3e50;
     }
     
+    /* Feedbacks */
     .feedback-success {
         background: #d4edda;
         border-left: 4px solid #28a745;
@@ -121,6 +127,7 @@ st.markdown("""
         color: #721c24;
     }
     
+    /* Score */
     .score-display {
         text-align: center;
         font-size: 24px;
@@ -129,56 +136,13 @@ st.markdown("""
         margin: 20px 0;
     }
     
-    /* Garantir que containers tenham fundo */
-    [data-testid="column"] {
-        background-color: #f8f9fa;
-        padding: 15px;
-        border-radius: 10px;
-        border: 2px solid #ddd;
+    /* FORÇAR texto escuro em elementos do Streamlit */
+    .stMarkdown {
+        color: #2c3e50;
     }
     
-    /* FORÇAR texto escuro em TUDO */
-    * {
-        color: #2c3e50 !important;
-    }
-    
-    /* Exceções específicas que PRECISAM ser brancas */
-    .big-title {
-        color: #e74c3c !important;
-    }
-    
-    [style*="background: linear-gradient"] h3,
-    [style*="background: linear-gradient"] p,
-    [style*="background: linear-gradient"] * {
-        color: white !important;
-    }
-    
-    .score-display {
-        color: #667eea !important;
-    }
-    
-    .footer-info {
-        color: #7f8c8d !important;
-    }
-    
-    .disclaimer {
-        color: #7f8c8d !important;
-    }
-    
-    .feedback-success, .feedback-success * {
-        color: #155724 !important;
-    }
-    
-    .feedback-warning, .feedback-warning * {
-        color: #856404 !important;
-    }
-    
-    .feedback-danger, .feedback-danger * {
-        color: #721c24 !important;
-    }
-    
-    .cliente-bubble, .cliente-bubble * {
-        color: #2c3e50 !important;
+    p, span, div, li {
+        color: #2c3e50;
     }
 </style>
 """, unsafe_allow_html=True)
