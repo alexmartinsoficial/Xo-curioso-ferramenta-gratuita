@@ -1180,7 +1180,7 @@ def show_carla_result():
 # ==========================================
 
 def show_cta_vendas():
-st.markdown('''
+    st.markdown('''
     <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
                 padding: 30px; border-radius: 15px; margin: 30px 0;">
         <h2 style="text-align: center; margin-top: 0; color: white;">🎁 Quer dominar TODAS as 4 etapas?</h2>
