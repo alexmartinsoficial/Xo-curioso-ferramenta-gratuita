@@ -541,7 +541,7 @@ def show_capa():
         if st.button("🎯 QUERO IDENTIFICAR CLIENTES DE VERDADE", 
                      type="primary", 
                      use_container_width=True):
-            go_to_page('scenarios')
+            go_to_page('explicacao_sinais')
     
     st.markdown('''
     <div class="footer-info">
@@ -1251,6 +1251,8 @@ def show_cta_vendas():
 
 if st.session_state.page == 'capa':
     show_capa()
+elif st.session_state.page == 'explicacao_sinais':  # ADICIONE AQUI
+    show_explicacao_sinais() 
 elif st.session_state.page == 'scenarios':
     show_scenarios()
 elif st.session_state.page == 'marcia':
