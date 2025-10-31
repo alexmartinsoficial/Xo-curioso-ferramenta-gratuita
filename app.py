@@ -158,7 +158,7 @@ st.markdown("""
         border-color: #667eea !important;
     }
     
-    /* Botões primários (Começar, Identificar Clientes) - verde */
+    /* Botões primários (Começar, Identificar Clientes) - vermelho */
     button[kind="primary"] {
         background-color: #28a745 !important;
         color: white !important;
@@ -515,22 +515,18 @@ def show_capa():
     st.markdown('''
     <div class="pain-list">
         <h3 style="margin-top: 0; color: #856404;">Você está cansado de:</h3>
-        <div class="pain-item">❌ Clientes pedindo desconto sem parar</div>
+        <div class="pain-item">❌ Perder tempo com "curiosos" que nunca fecham</div>
         <div class="pain-item">❌ "Vou pensar" que nunca mais voltam</div>
         <div class="pain-item">❌ Perder horas em orçamentos vazios</div>
-        <div class="pain-item">❌ Competir só por preço com a concorrência</div>
-        <div class="pain-item">❌ Agenda cheia mas faturamento baixo</div>
     </div>
     ''', unsafe_allow_html=True)
     
     st.markdown('''
     <div class="benefits">
         <h3 style="margin-top: 0; color: #0d47a1;">O que você vai aprender:</h3>
-        <div class="benefit-item">✅ Identificar em 30 segundos quem tem orçamento</div>
-        <div class="benefit-item">✅ Fazer perguntas certas sem parecer mercenário</div>
-        <div class="benefit-item">✅ Desqualificar clientes errados sem culpa</div>
-        <div class="benefit-item">✅ Focar energia apenas em quem vai fechar</div>
+        <div class="benefit-item">✅ Identificar rapidamente quem tem dinheiro de verdade</div>
         <div class="benefit-item">✅ Parar de dar desconto por insegurança</div>
+        <div class="benefit-item">✅ Focar sua energia apenas em quem vai fechar</div>
     </div>
     ''', unsafe_allow_html=True)
     
