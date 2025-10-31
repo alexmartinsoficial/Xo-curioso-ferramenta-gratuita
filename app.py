@@ -576,35 +576,71 @@ def show_explicacao_sinais():
     
     st.markdown("""
     <div style="text-align: center; font-size: 18px; color: #2c3e50; margin-bottom: 30px;">
-        Antes de começar, você precisa entender o Sistema FAROL de Qualificação
+        Antes de começar, você precisa entender o <strong>Sistema FAROL de Qualificação</strong>
     </div>
     """, unsafe_allow_html=True)
     
-    # Cliente Verde
     st.markdown("""
-    <div style="background: #d4edda; border-left: 5px solid #28a745; padding: 20px; border-radius: 10px; margin: 20px 0;">
-        <h3 style="color: #155724; margin-top: 0;">🟢 CLIENTE VERDE - SINAL LIVRE</h3>
-        <p style="color: #155724; margin: 10px 0;"><strong>Quem é:</strong> Tem orçamento definido, já pesquisou, sabe o que quer e está pronto para começar.</p>
-        <p style="color: #155724; margin: 10px 0;"><strong>Seu objetivo:</strong> Qualificar urgência, criar valor e FECHAR sem dar desconto desnecessário.</p>
-    </div>
-    """, unsafe_allow_html=True)
+    <h2 style="border-left: 5px solid #f39c12; color: #f39c12; padding-left: 15px; font-size: 22px;">
+        Etapa 1 - 💵 Quem tem dinheiro?
+    </h2>
     
-    # Cliente Amarelo
-    st.markdown("""
-    <div style="background: #fff3cd; border-left: 5px solid #ffc107; padding: 20px; border-radius: 10px; margin: 20px 0;">
-        <h3 style="color: #856404; margin-top: 0;">🟡 CLIENTE AMARELO - ATENÇÃO</h3>
-        <p style="color: #856404; margin: 10px 0;"><strong>Quem é:</strong> Interessado MAS sem orçamento completo agora. "Vou ver se consigo juntar..."</p>
-        <p style="color: #856404; margin: 10px 0;"><strong>Seu objetivo:</strong> Educar sobre valor, oferecer parcelamento, criar urgência. NÃO dar desconto!</p>
+    <div class="signals-summary">
+        <div class="signal-item">
+            <span class="signal-item-icon">🟢</span>
+            <span class="signal-item-title">Sinal Verde</span>
+            <span class="signal-item-text">- Cliente tem orçamento. Avançar!</span>
+        </div>
+        <div class="signal-item">
+            <span class="signal-item-icon">🟡</span>
+            <span class="signal-item-title">Sinal Amarelo</span>
+            <span class="signal-item-text">- Não possui orçamento, mas pode levantar. Vai te exigir estratégia!</span>
+        </div>
+        <div class="signal-item">
+            <span class="signal-item-icon">🔴</span>
+            <span class="signal-item-title">Sinal Vermelho</span>
+            <span class="signal-item-text">- Não possui orçamento e não demonstra intenção de investir. Fuja!</span>
+        </div>
     </div>
-    """, unsafe_allow_html=True)
     
-    # Cliente Vermelho
-    st.markdown("""
-    <div style="background: #f8d7da; border-left: 5px solid #dc3545; padding: 20px; border-radius: 10px; margin: 20px 0;">
-        <h3 style="color: #721c24; margin-top: 0;">🔴 CLIENTE VERMELHO - PARE!</h3>
-        <p style="color: #721c24; margin: 10px 0;"><strong>Quem é:</strong> "Só pesquisando", sem urgência, sem orçamento. "Talvez ano que vem..."</p>
-        <p style="color: #721c24; margin: 10px 0;"><strong>Seu objetivo:</strong> DESQUALIFICAR rapidamente e não perder tempo! Eduque brevemente e libere sua energia.</p>
-    </div>
+    <style>
+        .signals-summary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 25px;
+            border-radius: 10px;
+            margin: 25px 0;
+            color: white;
+        }
+        
+        .signal-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .signal-item:last-child {
+            margin-bottom: 0;
+        }
+        
+        .signal-item-icon {
+            font-size: 24px;
+            margin-right: 10px;
+            min-width: 30px;
+        }
+        
+        .signal-item-title {
+            font-size: 16px;
+            font-weight: bold;
+            margin-right: 10px;
+            color: white;
+        }
+        
+        .signal-item-text {
+            opacity: 0.95;
+            font-size: 15px;
+            color: white;
+        }
+    </style>
     """, unsafe_allow_html=True)
     
     st.markdown("---")
