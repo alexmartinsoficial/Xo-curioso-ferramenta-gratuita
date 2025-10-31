@@ -145,29 +145,51 @@ st.markdown("""
         color: #2c3e50;
     }
     
-/* Botões de opção padrão (A, B, C, D) - fundo branco */
-    .stButton > button {
+    /* Botões primários (Começar, Identificar Clientes) - VERMELHO */
+    button[kind="primary"],
+    .stButton > button[kind="primary"] {
+        background-color: #e74c3c !important;
+        color: white !important;
+        border: none !important;
+        font-weight: bold !important;
+        -webkit-text-fill-color: white !important;
+    }
+    
+    button[kind="primary"]:hover,
+    .stButton > button[kind="primary"]:hover {
+        background-color: #c0392b !important;
+        color: white !important;
+        -webkit-text-fill-color: white !important;
+    }
+    
+    /* Força branco em todo conteúdo do botão primário */
+    button[kind="primary"] *,
+    .stButton > button[kind="primary"] * {
+        color: white !important;
+        -webkit-text-fill-color: white !important;
+    }
+
+    /* Desativa modo escuro para botões primários */
+    @media (prefers-color-scheme: dark) {
+        button[kind="primary"],
+        .stButton > button[kind="primary"] {
+            background-color: #e74c3c !important;
+            color: white !important;
+            -webkit-text-fill-color: white !important;
+        }
+    }
+    
+    /* Botões de opção padrão (A, B, C, D) - fundo branco */
+    .stButton > button:not([kind="primary"]) {
         background-color: white !important;
         color: #2c3e50 !important;
         border: 2px solid #ddd !important;
         font-weight: 500 !important;
     }
     
-    .stButton > button:hover {
+    .stButton > button:not([kind="primary"]):hover {
         background-color: #f0f0f0 !important;
         border-color: #667eea !important;
-    }
-    
-    /* Botões primários (Começar, Identificar Clientes) - vermelho */
-    button[kind="primary"] {
-        background-color: #e74c3c !important;
-        color: white !important;
-        border: none !important;
-        font-weight: bold !important;
-    }
-    
-    button[kind="primary"]:hover {
-        background-color: #c0392b !important;
     }
 </style>
 """, unsafe_allow_html=True)
