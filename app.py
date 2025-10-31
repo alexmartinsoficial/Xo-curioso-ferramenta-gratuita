@@ -621,7 +621,9 @@ def show_marcia():
         st.markdown(f'<div class="score-display">📊 Pontos: {st.session_state.marcia_score}</div>', unsafe_allow_html=True)
     with col2:
         st.markdown(f'<div class="score-display">🎯 Pergunta: {current_step + 1}/{len(scenario["steps"])}</div>', unsafe_allow_html=True)
-    
+    progress = (current_step / len(scenario['steps'])) * 100
+st.progress(progress / 100)
+
     st.markdown("---")
     
     # Verificar se acabou
@@ -642,10 +644,21 @@ def show_marcia():
     
     st.markdown("### Como você responde?")
     
-    # Mostrar opções
+# Mostrar opções
     for idx, opcao in enumerate(step_data['opcoes']):
         letra = chr(65 + idx)  # A, B, C, D
         if st.button(f"{letra}) {opcao['texto']}", key=f"opt_{current_step}_{idx}", use_container_width=True):
+            # Mostrar feedback imediato
+            if opcao['pontos'] >= 2:
+                st.success(f"✅ {opcao['feedback']}")
+                st.info(f"💬 **{scenario['nome']} responde:** {opcao['resposta_cliente']}")
+            elif opcao['pontos'] >= 0:
+                st.warning(f"⚠️ {opcao['feedback']}")
+                st.info(f"💬 **{scenario['nome']} responde:** {opcao['resposta_cliente']}")
+            else:
+                st.error(f"❌ {opcao['feedback']}")
+                st.info(f"💬 **{scenario['nome']} responde:** {opcao['resposta_cliente']}")
+            
             # Registrar escolha
             st.session_state.marcia_history.append({
                 'step': current_step,
@@ -656,7 +669,10 @@ def show_marcia():
             })
             st.session_state.marcia_score += opcao['pontos']
             st.session_state.marcia_step += 1
-            st.rerun()
+            
+            # Botão para continuar
+            if st.button("➡️ Próxima Pergunta", type="primary", key=f"next_{current_step}"):
+                st.rerun()
     
     st.markdown("---")
     
@@ -738,7 +754,6 @@ def show_marcia_result():
 # ==========================================
 # TELA 5: SIMULADOR PAULA
 # ==========================================
-
 def show_paula():
     scenario = PAULA_SCENARIO
     current_step = st.session_state.paula_step
@@ -755,6 +770,9 @@ def show_paula():
         st.markdown(f'<div class="score-display">📊 Pontos: {st.session_state.paula_score}</div>', unsafe_allow_html=True)
     with col2:
         st.markdown(f'<div class="score-display">🎯 Pergunta: {current_step + 1}/{len(scenario["steps"])}</div>', unsafe_allow_html=True)
+    
+    progress = (current_step / len(scenario['steps'])) * 100
+    st.progress(progress / 100)
     
     st.markdown("---")
     
@@ -776,6 +794,18 @@ def show_paula():
     for idx, opcao in enumerate(step_data['opcoes']):
         letra = chr(65 + idx)
         if st.button(f"{letra}) {opcao['texto']}", key=f"opt_paula_{current_step}_{idx}", use_container_width=True):
+            # Mostrar feedback imediato
+            if opcao['pontos'] >= 2:
+                st.success(f"✅ {opcao['feedback']}")
+                st.info(f"💬 **{scenario['nome']} responde:** {opcao['resposta_cliente']}")
+            elif opcao['pontos'] >= 0:
+                st.warning(f"⚠️ {opcao['feedback']}")
+                st.info(f"💬 **{scenario['nome']} responde:** {opcao['resposta_cliente']}")
+            else:
+                st.error(f"❌ {opcao['feedback']}")
+                st.info(f"💬 **{scenario['nome']} responde:** {opcao['resposta_cliente']}")
+            
+            # Registrar escolha
             st.session_state.paula_history.append({
                 'step': current_step,
                 'escolha': opcao['texto'],
@@ -785,14 +815,17 @@ def show_paula():
             })
             st.session_state.paula_score += opcao['pontos']
             st.session_state.paula_step += 1
-            st.rerun()
+            
+            # Botão para continuar
+            if st.button("➡️ Próxima Pergunta", type="primary", key=f"next_paula_{current_step}"):
+                st.rerun()
     
     st.markdown("---")
     
     if st.button("⬅️ Voltar para Cenários"):
         reset_paula()
         go_to_page('scenarios')
-
+        
 # ==========================================
 # TELA 6: RESULTADO PAULA
 # ==========================================
@@ -825,7 +858,53 @@ def show_paula_result():
         st.warning(mensagem)
     else:
         st.error(mensagem)
+
+    st.markdown("---")
+    st.markdown("### 🎯 O que você aprendeu neste cenário:")
     
+    acertos = []
+    erros = []
+    
+    for item in st.session_state.paula_history:
+        if item['pontos'] >= 2:
+            acertos.append(item['feedback'].split('**')[1] if '**' in item['feedback'] else "Boa qualificação")
+        elif item['pontos'] < 0:
+            erros.append(item['feedback'].split('**')[1] if '**' in item['feedback'] else "Erro na abordagem")
+    
+    if acertos:
+        st.markdown("**✅ VOCÊ ACERTOU:**")
+        for acerto in set(acertos[:3]):
+            st.markdown(f"- {acerto}")
+    
+    if erros:
+        st.markdown("**❌ PRECISA MELHORAR:**")
+        for erro in set(erros[:3]):
+            st.markdown(f"- {erro}")
+    
+    st.markdown("**💡 LIÇÃO PRINCIPAL:** Cliente Amarelo precisa de educação e facilitação (parcelamento), não de desconto! Crie urgência e mostre valor.")
+    st.markdown("---")
+    st.markdown("### 🎯 O que você aprendeu neste cenário:")
+    
+    acertos = []
+    erros = []
+    
+    for item in st.session_state.carla_history:
+        if item['pontos'] >= 2:
+            acertos.append(item['feedback'].split('**')[1] if '**' in item['feedback'] else "Boa qualificação")
+        elif item['pontos'] < 0:
+            erros.append(item['feedback'].split('**')[1] if '**' in item['feedback'] else "Erro na abordagem")
+    
+    if acertos:
+        st.markdown("**✅ VOCÊ ACERTOU:**")
+        for acerto in set(acertos[:3]):
+            st.markdown(f"- {acerto}")
+    
+    if erros:
+        st.markdown("**❌ PRECISA MELHORAR:**")
+        for erro in set(erros[:3]):
+            st.markdown(f"- {erro}")
+    
+    st.markdown("**💡 LIÇÃO PRINCIPAL:** Cliente Vermelho não vira Verde com insistência! Desqualifique sem culpa e preserve sua energia para quem realmente vai comprar.")
     st.markdown("---")
     st.markdown("### 📝 Revisão das suas escolhas:")
     
@@ -861,7 +940,6 @@ def show_paula_result():
 # ==========================================
 # TELA 7: SIMULADOR CARLA
 # ==========================================
-
 def show_carla():
     scenario = CARLA_SCENARIO
     current_step = st.session_state.carla_step
@@ -878,6 +956,9 @@ def show_carla():
         st.markdown(f'<div class="score-display">📊 Pontos: {st.session_state.carla_score}</div>', unsafe_allow_html=True)
     with col2:
         st.markdown(f'<div class="score-display">🎯 Pergunta: {current_step + 1}/{len(scenario["steps"])}</div>', unsafe_allow_html=True)
+    
+    progress = (current_step / len(scenario['steps'])) * 100
+    st.progress(progress / 100)
     
     st.markdown("---")
     
@@ -899,6 +980,18 @@ def show_carla():
     for idx, opcao in enumerate(step_data['opcoes']):
         letra = chr(65 + idx)
         if st.button(f"{letra}) {opcao['texto']}", key=f"opt_carla_{current_step}_{idx}", use_container_width=True):
+            # Mostrar feedback imediato
+            if opcao['pontos'] >= 2:
+                st.success(f"✅ {opcao['feedback']}")
+                st.info(f"💬 **{scenario['nome']} responde:** {opcao['resposta_cliente']}")
+            elif opcao['pontos'] >= 0:
+                st.warning(f"⚠️ {opcao['feedback']}")
+                st.info(f"💬 **{scenario['nome']} responde:** {opcao['resposta_cliente']}")
+            else:
+                st.error(f"❌ {opcao['feedback']}")
+                st.info(f"💬 **{scenario['nome']} responde:** {opcao['resposta_cliente']}")
+            
+            # Registrar escolha
             st.session_state.carla_history.append({
                 'step': current_step,
                 'escolha': opcao['texto'],
@@ -908,7 +1001,10 @@ def show_carla():
             })
             st.session_state.carla_score += opcao['pontos']
             st.session_state.carla_step += 1
-            st.rerun()
+            
+            # Botão para continuar
+            if st.button("➡️ Próxima Pergunta", type="primary", key=f"next_carla_{current_step}"):
+                st.rerun()
     
     st.markdown("---")
     
@@ -948,7 +1044,30 @@ def show_carla_result():
         st.warning(mensagem)
     else:
         st.error(mensagem)
+
+    st.markdown("---")
+    st.markdown("### 🎯 O que você aprendeu neste cenário:")
     
+    acertos = []
+    erros = []
+    
+    for item in st.session_state.carla_history:
+        if item['pontos'] >= 2:
+            acertos.append(item['feedback'].split('**')[1] if '**' in item['feedback'] else "Boa qualificação")
+        elif item['pontos'] < 0:
+            erros.append(item['feedback'].split('**')[1] if '**' in item['feedback'] else "Erro na abordagem")
+    
+    if acertos:
+        st.markdown("**✅ VOCÊ ACERTOU:**")
+        for acerto in set(acertos[:3]):
+            st.markdown(f"- {acerto}")
+    
+    if erros:
+        st.markdown("**❌ PRECISA MELHORAR:**")
+        for erro in set(erros[:3]):
+            st.markdown(f"- {erro}")
+    
+    st.markdown("**💡 LIÇÃO PRINCIPAL:** Cliente Vermelho não vira Verde com insistência! Desqualifique sem culpa e preserve sua energia para quem realmente vai comprar.")
     st.markdown("---")
     st.markdown("### 📝 Revisão das suas escolhas:")
     
