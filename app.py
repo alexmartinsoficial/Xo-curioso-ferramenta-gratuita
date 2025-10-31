@@ -160,14 +160,14 @@ st.markdown("""
     
     /* Botões primários (Começar, Identificar Clientes) - vermelho */
     button[kind="primary"] {
-        background-color: #28a745 !important;
+        background-color: #e74c3c !important;
         color: white !important;
         border: none !important;
         font-weight: bold !important;
     }
     
     button[kind="primary"]:hover {
-        background-color: #218838 !important;
+        background-color: #c0392b !important;
     }
 </style>
 """, unsafe_allow_html=True)
