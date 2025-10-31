@@ -568,7 +568,6 @@ def show_explicacao_sinais():
         <h3 style="color: #155724; margin-top: 0;">🟢 CLIENTE VERDE - SINAL LIVRE</h3>
         <p style="color: #155724; margin: 10px 0;"><strong>Quem é:</strong> Tem orçamento definido, já pesquisou, sabe o que quer e está pronto para começar.</p>
         <p style="color: #155724; margin: 10px 0;"><strong>Seu objetivo:</strong> Qualificar urgência, criar valor e FECHAR sem dar desconto desnecessário.</p>
-        <p style="color: #155724; margin: 10px 0;"><strong>Frases típicas:</strong> "Tenho R$ X guardado", "Quero fazer logo", "Já pesquisei bastante"</p>
     </div>
     """, unsafe_allow_html=True)
     
@@ -578,7 +577,6 @@ def show_explicacao_sinais():
         <h3 style="color: #856404; margin-top: 0;">🟡 CLIENTE AMARELO - ATENÇÃO</h3>
         <p style="color: #856404; margin: 10px 0;"><strong>Quem é:</strong> Interessado MAS sem orçamento completo agora. "Vou ver se consigo juntar..."</p>
         <p style="color: #856404; margin: 10px 0;"><strong>Seu objetivo:</strong> Educar sobre valor, oferecer parcelamento, criar urgência. NÃO dar desconto!</p>
-        <p style="color: #856404; margin: 10px 0;"><strong>Frases típicas:</strong> "Não tenho tudo guardado", "Preciso ver meu orçamento", "Trabalha com parcelamento?"</p>
     </div>
     """, unsafe_allow_html=True)
     
@@ -588,23 +586,10 @@ def show_explicacao_sinais():
         <h3 style="color: #721c24; margin-top: 0;">🔴 CLIENTE VERMELHO - PARE!</h3>
         <p style="color: #721c24; margin: 10px 0;"><strong>Quem é:</strong> "Só pesquisando", sem urgência, sem orçamento. "Talvez ano que vem..."</p>
         <p style="color: #721c24; margin: 10px 0;"><strong>Seu objetivo:</strong> DESQUALIFICAR rapidamente e não perder tempo! Eduque brevemente e libere sua energia.</p>
-        <p style="color: #721c24; margin: 10px 0;"><strong>Frases típicas:</strong> "Só queria uma ideia", "Não tenho pressa", "Estou vendo vários lugares"</p>
     </div>
     """, unsafe_allow_html=True)
     
     st.markdown("---")
-    
-    st.markdown("""
-    <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
-                padding: 20px; border-radius: 15px; text-align: center; margin: 20px 0;">
-        <h3 style="color: white; margin: 0;">💡 A Regra de Ouro</h3>
-        <p style="color: white; margin: 10px 0; font-size: 18px;">
-            <strong>80% do seu tempo deve ir para clientes VERDES</strong><br>
-            15% para AMARELOS (se puderem virar verdes)<br>
-            5% para VERMELHOS (só para educar e liberar)
-        </p>
-    </div>
-    """, unsafe_allow_html=True)
     
     col1, col2, col3 = st.columns([1, 2, 1])
     with col2:
