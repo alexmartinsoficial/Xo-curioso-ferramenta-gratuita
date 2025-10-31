@@ -1180,11 +1180,11 @@ def show_carla_result():
 # ==========================================
 
 def show_cta_vendas():
-    st.markdown('''
+st.markdown('''
     <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
-                padding: 30px; border-radius: 15px; color: white; margin: 30px 0;">
-        <h2 style="text-align: center; margin-top: 0;">🎁 Quer dominar TODAS as 4 etapas?</h2>
-        <p style="text-align: center; font-size: 18px;">
+                padding: 30px; border-radius: 15px; margin: 30px 0;">
+        <h2 style="text-align: center; margin-top: 0; color: white;">🎁 Quer dominar TODAS as 4 etapas?</h2>
+        <p style="text-align: center; font-size: 18px; color: white;">
             Você treinou apenas <strong>BUDGET</strong> (Quem tem dinheiro?)<br><br>
             Mas ainda faltam 3 etapas críticas:
         </p>
