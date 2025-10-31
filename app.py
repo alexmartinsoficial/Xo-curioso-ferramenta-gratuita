@@ -789,14 +789,17 @@ def show_marcia_result():
     st.markdown("---")
     st.markdown("### 🎯 Resumo da sua performance:")
     
-    total_acertos = sum(1 for item in st.session_state.marcia_history if item['pontos'] >= 2)
+    total_acertos = sum(1 for item in st.session_state.marcia_history if item['pontos'] >= 2)  # ou paula_history ou carla_history
+    total_medias = sum(1 for item in st.session_state.marcia_history if 0 <= item['pontos'] < 2)
     total_erros = sum(1 for item in st.session_state.marcia_history if item['pontos'] < 0)
     
-    col1, col2 = st.columns(2)
+    col1, col2, col3 = st.columns(3)
     with col1:
-        st.metric("✅ Respostas Boas", f"{total_acertos}/3")
+        st.metric("✅ Boas", f"{total_acertos}/3")
     with col2:
-        st.metric("❌ Respostas Ruins", f"{total_erros}/3")
+        st.metric("⚠️ Médias", f"{total_medias}/3")
+    with col3:
+        st.metric("❌ Ruins", f"{total_erros}/3")
     
     st.markdown("---")
     st.markdown("**💡 LIÇÃO PRINCIPAL:** Cliente Verde já tem orçamento. Foque em criar valor e qualificar urgência, não em dar desconto!")
@@ -955,14 +958,17 @@ def show_paula_result():
     st.markdown("---")
     st.markdown("### 🎯 Resumo da sua performance:")
     
-    total_acertos = sum(1 for item in st.session_state.paula_history if item['pontos'] >= 2)
-    total_erros = sum(1 for item in st.session_state.paula_history if item['pontos'] < 0)
+    total_acertos = sum(1 for item in st.session_state.marcia_history if item['pontos'] >= 2)  # ou paula_history ou carla_history
+    total_medias = sum(1 for item in st.session_state.marcia_history if 0 <= item['pontos'] < 2)
+    total_erros = sum(1 for item in st.session_state.marcia_history if item['pontos'] < 0)
     
-    col1, col2 = st.columns(2)
+    col1, col2, col3 = st.columns(3)
     with col1:
-        st.metric("✅ Respostas Boas", f"{total_acertos}/3")
+        st.metric("✅ Boas", f"{total_acertos}/3")
     with col2:
-        st.metric("❌ Respostas Ruins", f"{total_erros}/3")
+        st.metric("⚠️ Médias", f"{total_medias}/3")
+    with col3:
+        st.metric("❌ Ruins", f"{total_erros}/3")
     
     st.markdown("---")
     st.markdown("**💡 LIÇÃO PRINCIPAL:** Cliente Amarelo precisa de educação e facilitação (parcelamento), não de desconto! Crie urgência e mostre valor.")
@@ -1115,14 +1121,17 @@ def show_carla_result():
     st.markdown("---")
     st.markdown("### 🎯 Resumo da sua performance:")
     
-    total_acertos = sum(1 for item in st.session_state.carla_history if item['pontos'] >= 2)
-    total_erros = sum(1 for item in st.session_state.carla_history if item['pontos'] < 0)
+    total_acertos = sum(1 for item in st.session_state.marcia_history if item['pontos'] >= 2)  # ou paula_history ou carla_history
+    total_medias = sum(1 for item in st.session_state.marcia_history if 0 <= item['pontos'] < 2)
+    total_erros = sum(1 for item in st.session_state.marcia_history if item['pontos'] < 0)
     
-    col1, col2 = st.columns(2)
+    col1, col2, col3 = st.columns(3)
     with col1:
-        st.metric("✅ Respostas Boas", f"{total_acertos}/3")
+        st.metric("✅ Boas", f"{total_acertos}/3")
     with col2:
-        st.metric("❌ Respostas Ruins", f"{total_erros}/3")
+        st.metric("⚠️ Médias", f"{total_medias}/3")
+    with col3:
+        st.metric("❌ Ruins", f"{total_erros}/3")
     
     st.markdown("---")
     st.markdown("**💡 LIÇÃO PRINCIPAL:** Cliente Vermelho não vira Verde com insistência! Desqualifique sem culpa e preserve sua energia para quem realmente vai comprar.")
