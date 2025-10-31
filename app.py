@@ -785,6 +785,41 @@ def show_marcia_result():
         st.warning(mensagem)
     else:
         st.error(mensagem)
+   
+    st.markdown("---")
+    st.markdown("### 🎯 O que você aprendeu neste cenário:")
+    
+    # Análise do histórico
+    acertos = []
+    erros = []
+    
+    for item in st.session_state.marcia_history:
+        if item['pontos'] >= 2:
+            # Extrai só a mensagem principal do feedback
+            feedback = item['feedback']
+            if '!' in feedback:
+                mensagem_feedback = feedback.split('!')[0].replace('✅', '').replace('**', '').strip()
+                if mensagem_feedback and mensagem_feedback not in ['ÓTIMO', 'EXCELENTE', 'PERFEITO', 'BOM']:
+                    acertos.append(mensagem_feedback)
+        elif item['pontos'] < 0:
+            feedback = item['feedback']
+            if '!' in feedback:
+                mensagem_feedback = feedback.split('!')[0].replace('❌', '').replace('**', '').strip()
+                if mensagem_feedback and mensagem_feedback not in ['ERRO', 'PÉSSIMO', 'TERRÍVEL', 'DESESPERO']:
+                    erros.append(mensagem_feedback)
+    
+    if acertos:
+        st.markdown("**✅ VOCÊ ACERTOU:**")
+        for acerto in list(set(acertos))[:2]:  # Máximo 2 únicos
+            st.markdown(f"• {acerto}")
+    
+    if erros:
+        st.markdown("**❌ PRECISA MELHORAR:**")
+        for erro in list(set(erros))[:2]:  # Máximo 2 únicos
+            st.markdown(f"• {erro}")
+    
+    st.markdown("**💡 LIÇÃO PRINCIPAL:** Cliente Verde já tem orçamento. Foque em criar valor e qualificar urgência, não em dar desconto!")
+    # FIM DO BLOCO ADICIONADO
     
     st.markdown("---")
     st.markdown("### 📝 Revisão das suas escolhas:")
