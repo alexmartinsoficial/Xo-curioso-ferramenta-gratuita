@@ -731,6 +731,13 @@ def show_marcia_result():
             
             st.markdown(f'<div class="{feedback_class}">{item["feedback"]}</div>', unsafe_allow_html=True)
             st.markdown(f"**Cliente respondeu:** \"{item['resposta']}\"")
+
+            # Mostrar resposta ideal
+            melhor_opcao = max(MARCIA_SCENARIO['steps'][item['step']]['opcoes'], key=lambda x: x['pontos'])
+            if item['pontos'] < melhor_opcao['pontos']:
+                with st.expander("🎓 Ver a resposta IDEAL"):
+                    st.success(f"**Resposta perfeita:** {melhor_opcao['texto']}")
+                    st.info(f"**Por quê?** {melhor_opcao['feedback']}")
     
     st.markdown("---")
     
@@ -920,6 +927,13 @@ def show_paula_result():
             
             st.markdown(f'<div class="{feedback_class}">{item["feedback"]}</div>', unsafe_allow_html=True)
             st.markdown(f"**Cliente respondeu:** \"{item['resposta']}\"")
+
+            # Mostrar resposta ideal
+            melhor_opcao = max(PAULA_SCENARIO['steps'][item['step']]['opcoes'], key=lambda x: x['pontos'])
+            if item['pontos'] < melhor_opcao['pontos']:
+                with st.expander("🎓 Ver a resposta IDEAL"):
+                    st.success(f"**Resposta perfeita:** {melhor_opcao['texto']}")
+                    st.info(f"**Por quê?** {melhor_opcao['feedback']}")
     
     st.markdown("---")
     
@@ -1083,6 +1097,13 @@ def show_carla_result():
             
             st.markdown(f'<div class="{feedback_class}">{item["feedback"]}</div>', unsafe_allow_html=True)
             st.markdown(f"**Cliente respondeu:** \"{item['resposta']}\"")
+
+            # Mostrar resposta ideal
+            melhor_opcao = max(CARLA_SCENARIO['steps'][item['step']]['opcoes'], key=lambda x: x['pontos'])
+            if item['pontos'] < melhor_opcao['pontos']:
+                with st.expander("🎓 Ver a resposta IDEAL"):
+                    st.success(f"**Resposta perfeita:** {melhor_opcao['texto']}")
+                    st.info(f"**Por quê?** {melhor_opcao['feedback']}")
     
     st.markdown("---")
     
