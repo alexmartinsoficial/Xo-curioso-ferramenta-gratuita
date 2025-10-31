@@ -615,15 +615,16 @@ def show_marcia():
         st.info(scenario['contexto'])
         st.markdown("---")
     
-    # Mostrar pontuação e progresso
+# Mostrar pontuação e progresso
     col1, col2 = st.columns(2)
     with col1:
         st.markdown(f'<div class="score-display">📊 Pontos: {st.session_state.marcia_score}</div>', unsafe_allow_html=True)
     with col2:
         st.markdown(f'<div class="score-display">🎯 Pergunta: {current_step + 1}/{len(scenario["steps"])}</div>', unsafe_allow_html=True)
+    
     progress = (current_step / len(scenario['steps'])) * 100
-st.progress(progress / 100)
-
+    st.progress(progress / 100)
+    
     st.markdown("---")
     
     # Verificar se acabou
