@@ -787,39 +787,19 @@ def show_marcia_result():
         st.error(mensagem)
    
     st.markdown("---")
-    st.markdown("### 🎯 O que você aprendeu neste cenário:")
+    st.markdown("### 🎯 Resumo da sua performance:")
     
-    # Análise do histórico
-    acertos = []
-    erros = []
+    total_acertos = sum(1 for item in st.session_state.marcia_history if item['pontos'] >= 2)
+    total_erros = sum(1 for item in st.session_state.marcia_history if item['pontos'] < 0)
     
-    for item in st.session_state.marcia_history:
-        if item['pontos'] >= 2:
-            # Extrai só a mensagem principal do feedback
-            feedback = item['feedback']
-            if '!' in feedback:
-                mensagem_feedback = feedback.split('!')[0].replace('✅', '').replace('**', '').strip()
-                if mensagem_feedback and mensagem_feedback not in ['ÓTIMO', 'EXCELENTE', 'PERFEITO', 'BOM']:
-                    acertos.append(mensagem_feedback)
-        elif item['pontos'] < 0:
-            feedback = item['feedback']
-            if '!' in feedback:
-                mensagem_feedback = feedback.split('!')[0].replace('❌', '').replace('**', '').strip()
-                if mensagem_feedback and mensagem_feedback not in ['ERRO', 'PÉSSIMO', 'TERRÍVEL', 'DESESPERO']:
-                    erros.append(mensagem_feedback)
+    col1, col2 = st.columns(2)
+    with col1:
+        st.metric("✅ Respostas Boas", f"{total_acertos}/3")
+    with col2:
+        st.metric("❌ Respostas Ruins", f"{total_erros}/3")
     
-    if acertos:
-        st.markdown("**✅ VOCÊ ACERTOU:**")
-        for acerto in list(set(acertos))[:2]:  # Máximo 2 únicos
-            st.markdown(f"• {acerto}")
-    
-    if erros:
-        st.markdown("**❌ PRECISA MELHORAR:**")
-        for erro in list(set(erros))[:2]:  # Máximo 2 únicos
-            st.markdown(f"• {erro}")
-    
+    st.markdown("---")
     st.markdown("**💡 LIÇÃO PRINCIPAL:** Cliente Verde já tem orçamento. Foque em criar valor e qualificar urgência, não em dar desconto!")
-    # FIM DO BLOCO ADICIONADO
     
     st.markdown("---")
     st.markdown("### 📝 Revisão das suas escolhas:")
@@ -863,7 +843,7 @@ def show_marcia_result():
     
     # CTA de Vendas
     show_cta_vendas()
-
+    
 # ==========================================
 # TELA 5: SIMULADOR PAULA
 # ==========================================
@@ -973,51 +953,20 @@ def show_paula_result():
         st.error(mensagem)
 
     st.markdown("---")
-    st.markdown("### 🎯 O que você aprendeu neste cenário:")
+    st.markdown("### 🎯 Resumo da sua performance:")
     
-    acertos = []
-    erros = []
+    total_acertos = sum(1 for item in st.session_state.paula_history if item['pontos'] >= 2)
+    total_erros = sum(1 for item in st.session_state.paula_history if item['pontos'] < 0)
     
-    for item in st.session_state.paula_history:
-        if item['pontos'] >= 2:
-            acertos.append(item['feedback'].split('**')[1] if '**' in item['feedback'] else "Boa qualificação")
-        elif item['pontos'] < 0:
-            erros.append(item['feedback'].split('**')[1] if '**' in item['feedback'] else "Erro na abordagem")
+    col1, col2 = st.columns(2)
+    with col1:
+        st.metric("✅ Respostas Boas", f"{total_acertos}/3")
+    with col2:
+        st.metric("❌ Respostas Ruins", f"{total_erros}/3")
     
-    if acertos:
-        st.markdown("**✅ VOCÊ ACERTOU:**")
-        for acerto in set(acertos[:3]):
-            st.markdown(f"- {acerto}")
-    
-    if erros:
-        st.markdown("**❌ PRECISA MELHORAR:**")
-        for erro in set(erros[:3]):
-            st.markdown(f"- {erro}")
-    
-    st.markdown("**💡 LIÇÃO PRINCIPAL:** Cliente Amarelo precisa de educação e facilitação (parcelamento), não de desconto! Crie urgência e mostre valor.")
     st.markdown("---")
-    st.markdown("### 🎯 O que você aprendeu neste cenário:")
+    st.markdown("**💡 LIÇÃO PRINCIPAL:** Cliente Amarelo precisa de educação e facilitação (parcelamento), não de desconto! Crie urgência e mostre valor.")
     
-    acertos = []
-    erros = []
-    
-    for item in st.session_state.carla_history:
-        if item['pontos'] >= 2:
-            acertos.append(item['feedback'].split('**')[1] if '**' in item['feedback'] else "Boa qualificação")
-        elif item['pontos'] < 0:
-            erros.append(item['feedback'].split('**')[1] if '**' in item['feedback'] else "Erro na abordagem")
-    
-    if acertos:
-        st.markdown("**✅ VOCÊ ACERTOU:**")
-        for acerto in set(acertos[:3]):
-            st.markdown(f"- {acerto}")
-    
-    if erros:
-        st.markdown("**❌ PRECISA MELHORAR:**")
-        for erro in set(erros[:3]):
-            st.markdown(f"- {erro}")
-    
-    st.markdown("**💡 LIÇÃO PRINCIPAL:** Cliente Vermelho não vira Verde com insistência! Desqualifique sem culpa e preserve sua energia para quem realmente vai comprar.")
     st.markdown("---")
     st.markdown("### 📝 Revisão das suas escolhas:")
     
@@ -1056,7 +1005,6 @@ def show_paula_result():
     
     st.markdown("---")
     show_cta_vendas()
-
 # ==========================================
 # TELA 7: SIMULADOR CARLA
 # ==========================================
@@ -1131,11 +1079,10 @@ def show_carla():
     if st.button("⬅️ Voltar para Cenários"):
         reset_carla()
         go_to_page('scenarios')
-
+        
 # ==========================================
 # TELA 8: RESULTADO CARLA
 # ==========================================
-
 def show_carla_result():
     st.markdown('<div class="big-title">🎯 Resultado Final</div>', unsafe_allow_html=True)
     
@@ -1164,30 +1111,22 @@ def show_carla_result():
         st.warning(mensagem)
     else:
         st.error(mensagem)
-
+    
     st.markdown("---")
-    st.markdown("### 🎯 O que você aprendeu neste cenário:")
+    st.markdown("### 🎯 Resumo da sua performance:")
     
-    acertos = []
-    erros = []
+    total_acertos = sum(1 for item in st.session_state.carla_history if item['pontos'] >= 2)
+    total_erros = sum(1 for item in st.session_state.carla_history if item['pontos'] < 0)
     
-    for item in st.session_state.carla_history:
-        if item['pontos'] >= 2:
-            acertos.append(item['feedback'].split('**')[1] if '**' in item['feedback'] else "Boa qualificação")
-        elif item['pontos'] < 0:
-            erros.append(item['feedback'].split('**')[1] if '**' in item['feedback'] else "Erro na abordagem")
+    col1, col2 = st.columns(2)
+    with col1:
+        st.metric("✅ Respostas Boas", f"{total_acertos}/3")
+    with col2:
+        st.metric("❌ Respostas Ruins", f"{total_erros}/3")
     
-    if acertos:
-        st.markdown("**✅ VOCÊ ACERTOU:**")
-        for acerto in set(acertos[:3]):
-            st.markdown(f"- {acerto}")
-    
-    if erros:
-        st.markdown("**❌ PRECISA MELHORAR:**")
-        for erro in set(erros[:3]):
-            st.markdown(f"- {erro}")
-    
+    st.markdown("---")
     st.markdown("**💡 LIÇÃO PRINCIPAL:** Cliente Vermelho não vira Verde com insistência! Desqualifique sem culpa e preserve sua energia para quem realmente vai comprar.")
+    
     st.markdown("---")
     st.markdown("### 📝 Revisão das suas escolhas:")
     
@@ -1203,7 +1142,7 @@ def show_carla_result():
             
             st.markdown(f'<div class="{feedback_class}">{item["feedback"]}</div>', unsafe_allow_html=True)
             st.markdown(f"**Cliente respondeu:** \"{item['resposta']}\"")
-
+            
             # Mostrar resposta ideal
             melhor_opcao = max(CARLA_SCENARIO['steps'][item['step']]['opcoes'], key=lambda x: x['pontos'])
             if item['pontos'] < melhor_opcao['pontos']:
