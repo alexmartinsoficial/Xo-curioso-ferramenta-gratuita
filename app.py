@@ -17,10 +17,15 @@ streamlit_js_eval(js_expressions="""
     script.src = 'https://www.googletagmanager.com/gtag/js?id=G-B5YRT6NE0J';
     document.head.appendChild(script);
     
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-B5YRT6NE0J');
+    script.onload = function() {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-B5YRT6NE0J', {
+            'page_path': window.parent.location.pathname,
+            'page_location': window.parent.location.href
+        });
+    };
 })();
 """, key="analytics")
 
