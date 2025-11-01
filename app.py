@@ -1,4 +1,5 @@
 import streamlit as st
+import streamlit.components.v1 as components
 
 # Configuração da página
 st.set_page_config(
@@ -9,8 +10,7 @@ st.set_page_config(
 )
 
 # Google Analytics
-st.markdown("""
-<!-- Google tag (gtag.js) -->
+components.html("""
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-B5YRT6NE0J"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -18,7 +18,7 @@ st.markdown("""
   gtag('js', new Date());
   gtag('config', 'G-B5YRT6NE0J');
 </script>
-""", unsafe_allow_html=True)
+""", height=0)
 
 # CSS customizado
 st.markdown("""
