@@ -8,6 +8,18 @@ st.set_page_config(
     initial_sidebar_state="collapsed"
 )
 
+# Google Analytics
+st.markdown("""
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-B5YRT6NE0J"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-B5YRT6NE0J');
+</script>
+""", unsafe_allow_html=True)
+
 # CSS customizado
 st.markdown("""
 <style>
