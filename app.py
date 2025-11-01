@@ -994,9 +994,9 @@ def show_paula_result():
     st.markdown("---")
     st.markdown("### 🎯 Resumo da sua performance:")
     
-    total_acertos = sum(1 for item in st.session_state.marcia_history if item['pontos'] >= 2)  # ou paula_history ou carla_history
-    total_medias = sum(1 for item in st.session_state.marcia_history if 0 <= item['pontos'] < 2)
-    total_erros = sum(1 for item in st.session_state.marcia_history if item['pontos'] < 0)
+    total_acertos = sum(1 for item in st.session_state.paula_history if item['pontos'] >= 2)
+    total_medias = sum(1 for item in st.session_state.paula_history if 0 <= item['pontos'] < 2)
+    total_erros = sum(1 for item in st.session_state.paula_history if item['pontos'] < 0)
     
     col1, col2, col3 = st.columns(3)
     with col1:
@@ -1157,9 +1157,9 @@ def show_carla_result():
     st.markdown("---")
     st.markdown("### 🎯 Resumo da sua performance:")
     
-    total_acertos = sum(1 for item in st.session_state.marcia_history if item['pontos'] >= 2)  # ou paula_history ou carla_history
-    total_medias = sum(1 for item in st.session_state.marcia_history if 0 <= item['pontos'] < 2)
-    total_erros = sum(1 for item in st.session_state.marcia_history if item['pontos'] < 0)
+    total_acertos = sum(1 for item in st.session_state.carla_history if item['pontos'] >= 2)
+    total_medias = sum(1 for item in st.session_state.carla_history if 0 <= item['pontos'] < 2)
+    total_erros = sum(1 for item in st.session_state.carla_history if item['pontos'] < 0)
     
     col1, col2, col3 = st.columns(3)
     with col1:
