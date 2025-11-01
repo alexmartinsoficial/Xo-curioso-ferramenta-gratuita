@@ -1,5 +1,5 @@
 import streamlit as st
-import streamlit.components.v1 as components
+from streamlit_js_eval import streamlit_js_eval
 
 # Configuração da página
 st.set_page_config(
@@ -9,16 +9,20 @@ st.set_page_config(
     initial_sidebar_state="collapsed"
 )
 
-# Google Analytics
-components.html("""
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-B5YRT6NE0J"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-B5YRT6NE0J');
-</script>
-""", height=0)
+# Google Analytics via JavaScript
+streamlit_js_eval(js_expressions="""
+(function() {
+    var script = document.createElement('script');
+    script.async = true;
+    script.src = 'https://www.googletagmanager.com/gtag/js?id=G-B5YRT6NE0J';
+    document.head.appendChild(script);
+    
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-B5YRT6NE0J');
+})();
+""", key="analytics")
 
 # CSS customizado
 st.markdown("""
