@@ -29,189 +29,149 @@ streamlit_js_eval(js_expressions="""
 })();
 """, key="analytics")
 
-# CSS customizado
+# CSS customizado - Identidade Visual Alex Martins
 st.markdown("""
 <style>
-    /* Esconder menu */
-    #MainMenu {visibility: hidden;}
-    footer {visibility: hidden;}
-    
-    /* Background principal */
+    /* Esconder menu e rodapé */
+    #MainMenu, footer {visibility: hidden;}
+
+    /* ======== CORES PRINCIPAIS ======== */
+    :root {
+        --fundo-azul: #1C1240;
+        --dourado: #D4AF37;
+        --dourado-hover: #B8942C;
+        --branco: #FFFFFF;
+        --texto-secundario: #E0E0E0;
+        --sombra: rgba(0, 0, 0, 0.4);
+    }
+
+    /* ======== BACKGROUND PRINCIPAL ======== */
     .main {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        background-color: var(--fundo-azul);
         padding: 20px;
     }
-    
-    /* Container branco central */
+
+    /* Container central */
     .stApp > div > div {
-        background: white;
+        background-color: var(--fundo-azul);
+        border: 2px solid var(--dourado);
         border-radius: 20px;
         padding: 40px;
-        box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        box-shadow: 0 20px 60px var(--sombra);
     }
-    
-    /* Títulos */
-    .big-title {
-        font-size: 48px;
+
+    /* ======== TIPOGRAFIA ======== */
+    body, p, span, div, li {
+        font-family: 'Arial', sans-serif;
+        color: var(--branco);
+    }
+
+    h1, .big-title {
+        font-family: 'Playfair Display', serif;
+        color: var(--dourado);
         font-weight: bold;
-        color: #e74c3c;
         text-align: center;
+        font-size: 48px;
         margin-bottom: 20px;
     }
-    
-    .subtitle {
-        font-size: 24px;
-        color: #2c3e50;
+
+    h2, .subtitle {
+        font-family: 'Arial', sans-serif;
+        color: var(--branco);
+        font-weight: 500;
         text-align: center;
+        font-size: 24px;
         line-height: 1.4;
         margin-bottom: 10px;
     }
-    
+
     .disclaimer {
         font-size: 18px;
-        color: #7f8c8d;
+        color: var(--texto-secundario);
         text-align: center;
         font-style: italic;
         margin-bottom: 40px;
     }
-    
-    /* Boxes de conteúdo */
-    .pain-list {
-        background: #fff3cd;
-        border-left: 5px solid #ffc107;
+
+    /* ======== BOXES DE CONTEÚDO ======== */
+    .pain-list, .benefits, .cliente-bubble, .feedback-success,
+    .feedback-warning, .feedback-danger {
+        background-color: var(--fundo-azul);
+        border: 2px solid var(--dourado);
         padding: 20px;
-        border-radius: 10px;
+        border-radius: 12px;
         margin: 30px 0;
-        color: #2c3e50;
+        color: var(--branco);
+        box-shadow: 0 4px 20px rgba(0,0,0,0.25);
     }
-    
-    .benefits {
-        background: #e7f3ff;
-        border-left: 5px solid #2196F3;
-        padding: 20px;
-        border-radius: 10px;
-        margin: 30px 0;
-        color: #2c3e50;
-    }
-    
-    .footer-info {
-        text-align: center;
-        color: #7f8c8d;
-        font-size: 14px;
-        margin-top: 20px;
-    }
-    
-    /* Cards de cenários */
+
+    /* ======== CARDS DE CENÁRIOS ======== */
     [data-testid="column"] {
-        background-color: #f8f9fa;
+        background-color: #261B55;
+        border: 1px solid var(--dourado);
+        border-radius: 12px;
         padding: 15px;
-        border-radius: 10px;
-        border: 2px solid #ddd;
-        color: #2c3e50;
+        color: var(--branco);
     }
-    
-    /* Bubbles de cliente */
-    .cliente-bubble {
-        background: #e8f5e9;
-        border-left: 4px solid #4caf50;
-        padding: 15px;
-        border-radius: 10px;
-        margin: 20px 0;
-        color: #2c3e50;
-    }
-    
-    /* Feedbacks */
-    .feedback-success {
-        background: #d4edda;
-        border-left: 4px solid #28a745;
-        padding: 15px;
-        border-radius: 8px;
-        margin: 15px 0;
-        color: #155724;
-    }
-    
-    .feedback-warning {
-        background: #fff3cd;
-        border-left: 4px solid #ffc107;
-        padding: 15px;
-        border-radius: 8px;
-        margin: 15px 0;
-        color: #856404;
-    }
-    
-    .feedback-danger {
-        background: #f8d7da;
-        border-left: 4px solid #dc3545;
-        padding: 15px;
-        border-radius: 8px;
-        margin: 15px 0;
-        color: #721c24;
-    }
-    
-    /* Score */
+
+    /* ======== SCORE ======== */
     .score-display {
         text-align: center;
         font-size: 24px;
         font-weight: bold;
-        color: #667eea;
+        color: var(--dourado);
         margin: 20px 0;
     }
-    
-    /* FORÇAR texto escuro em elementos do Streamlit */
-    .stMarkdown {
-        color: #2c3e50;
-    }
-    
-    p, span, div, li {
-        color: #2c3e50;
-    }
-    
-    /* Botões primários (Começar, Identificar Clientes) - VERMELHO */
+
+    /* ======== BOTÕES ======== */
     button[kind="primary"],
     .stButton > button[kind="primary"] {
-        background-color: #e74c3c !important;
-        color: white !important;
+        background-color: var(--dourado) !important;
+        color: var(--branco) !important;
         border: none !important;
+        border-radius: 8px !important;
         font-weight: bold !important;
-        -webkit-text-fill-color: white !important;
-    }
-    
-    button[kind="primary"]:hover,
-    .stButton > button[kind="primary"]:hover {
-        background-color: #c0392b !important;
-        color: white !important;
-        -webkit-text-fill-color: white !important;
-    }
-    
-    /* Força branco em todo conteúdo do botão primário */
-    button[kind="primary"] *,
-    .stButton > button[kind="primary"] * {
-        color: white !important;
-        -webkit-text-fill-color: white !important;
+        padding: 10px 20px !important;
+        cursor: pointer !important;
+        -webkit-text-fill-color: var(--branco) !important;
+        transition: 0.2s ease-in-out;
     }
 
-    /* Desativa modo escuro para botões primários */
-    @media (prefers-color-scheme: dark) {
-        button[kind="primary"],
-        .stButton > button[kind="primary"] {
-            background-color: #e74c3c !important;
-            color: white !important;
-            -webkit-text-fill-color: white !important;
-        }
+    button[kind="primary"]:hover,
+    .stButton > button[kind="primary"]:hover {
+        background-color: var(--dourado-hover) !important;
+        box-shadow: 0 0 12px var(--dourado-hover);
     }
-    
-    /* Botões de opção padrão (A, B, C, D) - fundo branco */
+
+    /* Forçar branco no texto interno */
+    button[kind="primary"] *,
+    .stButton > button[kind="primary"] * {
+        color: var(--branco) !important;
+        -webkit-text-fill-color: var(--branco) !important;
+    }
+
+    /* Botões secundários */
     .stButton > button:not([kind="primary"]) {
-        background-color: white !important;
-        color: #2c3e50 !important;
-        border: 2px solid #ddd !important;
+        background-color: transparent !important;
+        color: var(--dourado) !important;
+        border: 2px solid var(--dourado) !important;
+        border-radius: 8px !important;
         font-weight: 500 !important;
     }
-    
+
     .stButton > button:not([kind="primary"]):hover {
-        background-color: #f0f0f0 !important;
-        border-color: #667eea !important;
+        background-color: var(--dourado) !important;
+        color: var(--fundo-azul) !important;
     }
+
+    /* ======== FOOTER ======== */
+    .footer-info {
+        text-align: center;
+        color: var(--texto-secundario);
+        font-size: 14px;
+        margin-top: 20px;
+    }
+
 </style>
 """, unsafe_allow_html=True)
 
