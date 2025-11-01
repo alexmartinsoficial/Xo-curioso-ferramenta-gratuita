@@ -751,7 +751,7 @@ def show_marcia():
     
     st.markdown("### Como você responde?")
     
-# Mostrar opções
+    # Mostrar opções
     for idx, opcao in enumerate(step_data['opcoes']):
         letra = chr(65 + idx)  # A, B, C, D
         if st.button(f"{letra}) {opcao['texto']}", key=f"opt_{current_step}_{idx}", use_container_width=True):
@@ -1087,7 +1087,7 @@ def show_carla():
     </div>
     ''', unsafe_allow_html=True)
     
-st.markdown("### Como você responde?")
+    st.markdown("### Como você responde?")
     
     for idx, opcao in enumerate(step_data['opcoes']):
         letra = chr(65 + idx)
