@@ -926,6 +926,17 @@ def show_paula():
     for idx, opcao in enumerate(step_data['opcoes']):
         letra = chr(65 + idx)
         if st.button(f"{letra}) {opcao['texto']}", key=f"opt_paula_{current_step}_{idx}", use_container_width=True):
+            # Registrar escolha PRIMEIRO
+            st.session_state.paula_history.append({
+                'step': current_step,
+                'escolha': opcao['texto'],
+                'pontos': opcao['pontos'],
+                'feedback': opcao['feedback'],
+                'resposta': opcao['resposta_cliente']
+            })
+            st.session_state.paula_score += opcao['pontos']
+            st.session_state.paula_step += 1
+            
             # Mostrar feedback imediato
             if opcao['pontos'] >= 2:
                 st.success(f"✅ {opcao['feedback']}")
@@ -937,16 +948,7 @@ def show_paula():
                 st.error(f"❌ {opcao['feedback']}")
                 st.info(f"💬 **{scenario['nome']} responde:** {opcao['resposta_cliente']}")
             
-            # Registrar escolha
-            st.session_state.paula_history.append({
-                'step': current_step,
-                'escolha': opcao['texto'],
-                'pontos': opcao['pontos'],
-                'feedback': opcao['feedback'],
-                'resposta': opcao['resposta_cliente']
-            })
-            st.session_state.paula_score += opcao['pontos']
-            st.session_state.paula_step += 1
+            st.markdown("<br>", unsafe_allow_html=True)
             
             # Botão para continuar
             if st.button("➡️ Próxima Pergunta", type="primary", key=f"next_paula_{current_step}"):
@@ -1085,11 +1087,22 @@ def show_carla():
     </div>
     ''', unsafe_allow_html=True)
     
-    st.markdown("### Como você responde?")
+st.markdown("### Como você responde?")
     
     for idx, opcao in enumerate(step_data['opcoes']):
         letra = chr(65 + idx)
         if st.button(f"{letra}) {opcao['texto']}", key=f"opt_carla_{current_step}_{idx}", use_container_width=True):
+            # Registrar escolha PRIMEIRO
+            st.session_state.carla_history.append({
+                'step': current_step,
+                'escolha': opcao['texto'],
+                'pontos': opcao['pontos'],
+                'feedback': opcao['feedback'],
+                'resposta': opcao['resposta_cliente']
+            })
+            st.session_state.carla_score += opcao['pontos']
+            st.session_state.carla_step += 1
+            
             # Mostrar feedback imediato
             if opcao['pontos'] >= 2:
                 st.success(f"✅ {opcao['feedback']}")
@@ -1101,16 +1114,7 @@ def show_carla():
                 st.error(f"❌ {opcao['feedback']}")
                 st.info(f"💬 **{scenario['nome']} responde:** {opcao['resposta_cliente']}")
             
-            # Registrar escolha
-            st.session_state.carla_history.append({
-                'step': current_step,
-                'escolha': opcao['texto'],
-                'pontos': opcao['pontos'],
-                'feedback': opcao['feedback'],
-                'resposta': opcao['resposta_cliente']
-            })
-            st.session_state.carla_score += opcao['pontos']
-            st.session_state.carla_step += 1
+            st.markdown("<br>", unsafe_allow_html=True)
             
             # Botão para continuar
             if st.button("➡️ Próxima Pergunta", type="primary", key=f"next_carla_{current_step}"):
