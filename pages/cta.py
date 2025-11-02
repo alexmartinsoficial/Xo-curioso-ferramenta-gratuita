@@ -68,3 +68,4 @@ def show_cta():
     ''', unsafe_allow_html=True)
     
     st.markdown('<p style="text-align: center; color: #7f8c8d; font-size: 14px;">Pagamento via PIX • Acesso imediato</p>', unsafe_allow_html=True)
+
