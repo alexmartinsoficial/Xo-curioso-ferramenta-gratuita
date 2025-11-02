@@ -12,7 +12,7 @@ def show_sinais():
     
     st.markdown("""
     <h2 style="border-left: 5px solid #f39c12; color: #f39c12; padding-left: 15px; font-size: 22px;">
-        Etapa 1 - 💵 Quem tem dinheiro?
+        Etapa 1 - 💰 Tem Grana no Bolso?
     </h2>
     
     <div class="signals-summary">
@@ -47,3 +47,4 @@ def show_sinais():
     if st.button("⬅️ Voltar"):
         st.session_state.page = 'home'
         st.rerun()
+
