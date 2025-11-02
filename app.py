@@ -50,9 +50,9 @@ if 'page' not in st.session_state:
     st.session_state.page = 'home'
 
 # Sistema de login
-if not require_auth():
-    show_login()
-    st.stop()
+# if not require_auth():
+#     show_login()
+#     st.stop()
 
 # Adicionar botão de logout no sidebar (quando login estiver ativo)
 # with st.sidebar:
@@ -144,3 +144,4 @@ else:
     if st.button("🏠 Voltar ao Início"):
         st.session_state.page = 'home'
         st.rerun()
+
