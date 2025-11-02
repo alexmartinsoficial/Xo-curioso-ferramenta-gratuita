@@ -15,10 +15,10 @@ def show_cta():
     
     st.markdown("### 🎯 Ferramenta FAROL Completa (4 Etapas):")
     
-    st.markdown("**✅ BUDGET:** Quem tem dinheiro? *(Você já treinou isso!)*")
-    st.markdown("**🔒 AUTHORITY:** Quem decide de verdade? *(Muitos perdem venda aqui)*")
-    st.markdown("**🔒 NEED:** Qual a dor real do cliente? *(Sem isso, ele compra do concorrente)*")
-    st.markdown("**🔒 TIMELINE:** Está pronto para fechar AGORA? *(Evita 'vou pensar')*")
+    st.markdown("**✅ Orçamento:** 💰 Tem Grana no Bolso? *(Você já dominou isso!)*") 
+    st.markdown("**🔒 Poder de Decisão:** 👑 Quem Assina o Cheque? *(Pare de perder vendas por não saber quem decide!)*")
+    st.markdown("**🔒 Necessidade:** 🔥 Dor Real ou Só Dando uma Olhadinha? *(Seus concorrentes sabem perguntar. E você?)*") 
+    st.markdown("**🔒 Urgência:** ⏰ Quer de Verdade ou Só pra 2030? *(A diferença entre 'cliente' e 'turista de consultório')*")
     
     st.markdown("---")
     
@@ -68,4 +68,5 @@ def show_cta():
     ''', unsafe_allow_html=True)
     
     st.markdown('<p style="text-align: center; color: #7f8c8d; font-size: 14px;">Pagamento via PIX • Acesso imediato</p>', unsafe_allow_html=True)
+
 
